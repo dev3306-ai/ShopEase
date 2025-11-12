@@ -3,6 +3,9 @@
 ## 🌐 Live Demo
 **Frontend URL:** [https://shopease-frontend.netlify.app](https://shopease-frontend.netlify.app)
 
+## 📂 Repository
+**GitHub Repository:** [https://github.com/dev3306-ai/ShopEase.git](https://github.com/dev3306-ai/ShopEase.git)
+
 ## 📋 Project Proposal
 
 ### Overview
