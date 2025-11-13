@@ -115,7 +115,20 @@ app.post("/api/auth/login", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "ShopEase API is running!" });
+  res.json({ 
+    message: "ShopEase API is running!",
+    mongodb: mongoose.connection.readyState === 1 ? "Connected" : "Disconnected"
+  });
+});
+
+app.get("/api/status", (req, res) => {
+  res.json({
+    server: "running",
+    mongodb: {
+      status: mongoose.connection.readyState === 1 ? "connected" : "disconnected",
+      readyState: mongoose.connection.readyState
+    }
+  });
 });
 
 app.listen(PORT, () => {
