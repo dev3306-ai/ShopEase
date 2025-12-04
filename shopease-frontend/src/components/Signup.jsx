@@ -159,14 +159,7 @@ function Signup({ onLogin }) {
         </button>
       </form>
 
-      <div className="auth-divider">
-        <span>or</span>
-      </div>
-
-      <GoogleAuth 
-        onSuccess={onLogin}
-        onError={(error) => setError(error)}
-      />
+      {/* Google OAuth temporarily disabled for deployment */}
 
       <div className="auth-switch">
         Already have an account?{" "}
