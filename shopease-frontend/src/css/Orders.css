@@ -1,0 +1,357 @@
+.orders-page {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.products-nav {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-logo {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2a2a2a;
+  letter-spacing: -0.02em;
+}
+
+.logo-accent {
+  font-weight: 400;
+  color: #7a7a7a;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: #7a7a7a;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #2a2a2a;
+}
+
+.orders-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.orders-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.orders-header h1 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #2a2a2a;
+  letter-spacing: -0.02em;
+}
+
+.status-filter {
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #e5e5e5;
+  font-size: 0.9rem;
+  background: white;
+  font-weight: 400;
+  color: #2a2a2a;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.status-filter:focus {
+  outline: none;
+  border-color: #2a2a2a;
+}
+
+.orders-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.order-card {
+  background: white;
+  padding: 1.5rem;
+  border: 1px solid #e5e5e5;
+  transition: box-shadow 0.2s;
+}
+
+.order-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.order-id {
+  font-weight: 500;
+  color: #2a2a2a;
+  font-size: 0.95rem;
+}
+
+.order-status {
+  padding: 0.35rem 0.7rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.status-pending { background: #fef3c7; color: #92400e; }
+.status-processing { background: #dbeafe; color: #1e40af; }
+.status-shipped { background: #e0e7ff; color: #4338ca; }
+.status-delivered { background: #d1fae5; color: #065f46; }
+.status-cancelled { background: #fee2e2; color: #991b1b; }
+
+.order-details {
+  margin-bottom: 1rem;
+}
+
+.order-details p {
+  margin: 0.5rem 0;
+  color: #7a7a7a;
+  font-size: 0.85rem;
+}
+
+.order-details strong {
+  color: #2a2a2a;
+}
+
+.order-items-preview {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #fafafa;
+  border: 1px solid #e5e5e5;
+}
+
+.order-item-mini {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.order-item-mini img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid #e5e5e5;
+}
+
+.order-item-mini span {
+  font-size: 0.75rem;
+  color: #7a7a7a;
+  font-weight: 500;
+}
+
+.order-items-preview > span {
+  font-size: 0.8rem;
+  color: #7a7a7a;
+  margin-left: 0.5rem;
+}
+
+.order-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.order-actions .edit-btn,
+.order-actions .delete-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.order-actions .edit-btn {
+  background: #2a2a2a;
+  color: white;
+}
+
+.order-actions .edit-btn:hover {
+  background: #3a3a3a;
+}
+
+.order-actions .delete-btn {
+  background: white;
+  color: #2a2a2a;
+  border: 1px solid #e5e5e5;
+}
+
+.order-actions .delete-btn:hover {
+  background: #fafafa;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination-btn {
+  padding: 0.65rem 1.3rem;
+  border: 1px solid #e5e5e5;
+  background: white;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  color: #2a2a2a;
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #2a2a2a;
+  color: white;
+  border-color: #2a2a2a;
+}
+
+.pagination-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.page-info {
+  color: #7a7a7a;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border: 1px solid #e5e5e5;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+  color: #2a2a2a;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.modal-content p {
+  color: #7a7a7a;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.status-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.status-btn {
+  padding: 0.7rem;
+  border: 1px solid #e5e5e5;
+  background: white;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  color: #2a2a2a;
+}
+
+.status-btn:hover {
+  background: #fafafa;
+  border-color: #2a2a2a;
+}
+
+.close-btn {
+  width: 100%;
+  padding: 0.7rem;
+  background: #2a2a2a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: #3a3a3a;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 0.95rem;
+  color: #7a7a7a;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .orders-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .status-filter {
+    width: 100%;
+  }
+}

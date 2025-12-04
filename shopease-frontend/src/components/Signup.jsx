@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import GoogleAuth from "./GoogleAuth";
 import "../css/Auth.css";
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
@@ -8,6 +9,7 @@ const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
 
 function Signup({ onLogin }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -30,7 +32,6 @@ function Signup({ onLogin }) {
     e.preventDefault();
     setLoading(true);
     setError("");
-    console.log('Signup attempt:', formData);
 
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
@@ -39,14 +40,12 @@ function Signup({ onLogin }) {
     }
 
     try {
-      console.log('Sending request to:', `${API_URL}/api/auth/signup`);
       const response = await fetch(`${API_URL}/api/auth/signup`, {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        mode: 'cors',
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
@@ -60,8 +59,8 @@ function Signup({ onLogin }) {
       }
       
       const data = await response.json();
-      console.log('Signup response:', data);
       onLogin(data.token, data.user);
+      navigate('/');
     } catch (err) {
       console.error('Signup error:', err);
       setError(err.message || "Signup failed");
@@ -75,7 +74,14 @@ function Signup({ onLogin }) {
       <div className="auth-container">
       <Link to="/" className="close-button">×</Link>
       <div className="auth-header">
-        <h1 className="auth-title">ShopEase</h1>
+        <div className="auth-logo">
+          <svg className="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 2L3 6V20C3 21.1 3.9 22 5 22H19C20.1 22 21 21.1 21 20V6L18 2H6Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          <h1 className="auth-title">Shop<span className="logo-accent">Ease</span></h1>
+        </div>
         <p className="auth-subtitle">Create your account to get started</p>
       </div>
 
@@ -152,6 +158,15 @@ function Signup({ onLogin }) {
           {loading ? "Creating account..." : "Create Account"}
         </button>
       </form>
+
+      <div className="auth-divider">
+        <span>or</span>
+      </div>
+
+      <GoogleAuth 
+        onSuccess={onLogin}
+        onError={(error) => setError(error)}
+      />
 
       <div className="auth-switch">
         Already have an account?{" "}
